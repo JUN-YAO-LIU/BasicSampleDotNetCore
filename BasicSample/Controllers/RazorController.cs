@@ -13,5 +13,10 @@ namespace BasicSample.Controllers
         {
             return View();
         }
+
+        public IActionResult HtmlHelper()
+        {
+            return View();
+        }
     }
 }
