@@ -8,5 +8,10 @@ namespace BasicSample.Controllers
         {
             return View();
         }
+
+        public IActionResult BasicSyntax()
+        {
+            return View();
+        }
     }
 }
