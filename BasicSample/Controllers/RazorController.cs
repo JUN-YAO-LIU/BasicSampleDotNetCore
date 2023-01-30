@@ -16,6 +16,27 @@ namespace BasicSample.Controllers
         }
 
         [HttpGet]
+        public IActionResult FourMethodControllerSendValueToView()
+        {
+            ViewData["Age"] = 12;
+            ViewData["userName"] = "Jack";
+
+            ViewBag.Name = "弱型別";
+
+            TempData["Date"] = DateTime.UtcNow;
+
+            var Model = new CreateOrder
+            {
+                Id = 3,
+                BirthDay = DateTime.UtcNow,
+                Amount = 32,
+                Email = "test@gmail.com"
+            };
+
+            return View(Model);
+        }
+
+        [HttpGet]
         public IActionResult HtmlHelper()
         {
             return View();
