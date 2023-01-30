@@ -1,2 +1,57 @@
-﻿@Html.BeginForm(){};
-@Html.Editor(){};
+﻿@model BasicSample.Models.CreateOrder
+@using (Html.BeginForm("HtmlHelper", "Razor", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.Id, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.Id)
+        @Html.ValidationMessageFor(x => x.Id, "", new { style="color:red;" })
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.OrderName, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.OrderName)
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.Email, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.Email)
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.OrderUrl, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.OrderUrl)
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.BirthDay, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.BirthDay)
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.OrderDate, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.OrderDate)
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.Amount, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.Amount)
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.Store, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.Store)
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.Remark, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.Remark)
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.Delete, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.Delete)
+    </div>
+    
+    <button type="submit">Send</button>
+}
