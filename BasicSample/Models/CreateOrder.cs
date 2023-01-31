@@ -1,15 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace BasicSample.Models
 {
     public class CreateOrder
     {
-        public int Id { get; set; }
-
         /// <summary>
         /// 訂單名稱
         /// </summary>
-        public string? OrderName { get; set; }
+        public string OrderName { get; set; } = string.Empty;
 
         /// <summary>
         /// 信箱
@@ -19,12 +18,12 @@ namespace BasicSample.Models
         /// <summary>
         /// 產品連結
         /// </summary>
-        public string? OrderUrl { get; set; } = string.Empty;
+        public string? OrderUrl { get; set; }
 
         /// <summary>
         /// 生日
         /// </summary>
-        public DateTime BirthDay { get; set; }
+        public DateTime? BirthDay { get; set; }
 
         /// <summary>
         /// 訂單日期
@@ -34,7 +33,7 @@ namespace BasicSample.Models
         /// <summary>
         /// 費用
         /// </summary>
-        public int Amount { get; set; }
+        public int? Amount { get; set; }
 
         /// <summary>
         /// 商店名稱

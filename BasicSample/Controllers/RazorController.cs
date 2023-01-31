@@ -18,16 +18,20 @@ namespace BasicSample.Controllers
         [HttpGet]
         public IActionResult FourMethodControllerSendValueToView()
         {
-            ViewData["Age"] = 12;
-            ViewData["userName"] = "Jack";
+            ViewData["Num"] = 12;
+            ViewData["ViewName"] = "Jack";
+            ViewData["ViewDate"] = DateTime.UtcNow;
 
-            ViewBag.Name = "弱型別";
+            ViewBag.BagNum = 13;
+            ViewBag.BagName = "Bag名稱";
+            ViewBag.Bag日期 = DateTime.UtcNow;
 
-            TempData["Date"] = DateTime.UtcNow;
+            TempData["TempDate"] = DateTime.UtcNow;
+            TempData["TempNum"] = 1;
+            TempData["TempName"] = "名稱";
 
             var Model = new CreateOrder
             {
-                Id = 3,
                 BirthDay = DateTime.UtcNow,
                 Amount = 32,
                 Email = "test@gmail.com"
