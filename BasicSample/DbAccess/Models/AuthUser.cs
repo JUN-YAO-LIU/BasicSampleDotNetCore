@@ -6,12 +6,9 @@ namespace BasicSample.DbAccess.Models
     public class AuthUser
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string Account { get; set; } = string.Empty;
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public long Id { get; set; }
 
-        public string Pwd { get; set; } = string.Empty;
-        public string HttpMethod { get; set; } = string.Empty;
-        public string FunctionPath { get; set; } = string.Empty;
-        public bool Enabled { get; set; }
+        public string Name { get; set; } = string.Empty;
     }
 }

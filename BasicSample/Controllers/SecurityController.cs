@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BasicSample.DbAccess;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System.Text.Encodings.Web;
 
 namespace BasicSample.Controllers
@@ -9,14 +12,18 @@ namespace BasicSample.Controllers
         private readonly JavaScriptEncoder _javaScriptEncoder;
         private readonly UrlEncoder _urlEncoder;
 
+        private readonly ApplicationDbContext _db;
+
         public SecurityController(
             HtmlEncoder htmlEncoder,
             JavaScriptEncoder javaScriptEncoder,
-            UrlEncoder urlEncoder)
+            UrlEncoder urlEncoder,
+            ApplicationDbContext db)
         {
             _htmlEncoder = htmlEncoder;
             _javaScriptEncoder = javaScriptEncoder;
             _urlEncoder = urlEncoder;
+            _db = db;
         }
 
         public IActionResult Index()
@@ -65,6 +72,25 @@ namespace BasicSample.Controllers
             ViewBag.dontEncodeHtml = content;
             ViewBag.js = jsContnet;
             ViewBag.url = urlContnet;
+
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult SQLInjection(string? search)
+        {
+            string sqlString = $"select * from where (1=1) AND name = {search}";
+
+            //var data = _db.AuthUsers
+            //    .FromSqlRaw(sqlString)
+            //    .ToList();
+
+            var sqlSearch = new SqlParameter("name", search);
+            string sqlString2 = $"select * from where (1=1) AND name = {sqlSearch}";
+
+            //var data2 = _db.AuthUsers
+            //    .FromSqlRaw(sqlString2)
+            //    .ToList();
 
             return View();
         }
