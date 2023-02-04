@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-
-namespace BasicSample.Models
+﻿namespace BasicSample.Models
 {
     public class CreateOrder
     {
@@ -13,7 +10,7 @@ namespace BasicSample.Models
         /// <summary>
         /// 信箱
         /// </summary>
-        public string Email { get; set; } = string.Empty;
+        public string? Email { get; set; } = string.Empty;
 
         /// <summary>
         /// 產品連結

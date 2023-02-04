@@ -77,21 +77,33 @@ namespace BasicSample.Controllers
         }
 
         [HttpGet]
-        public IActionResult SQLInjection(string? search)
+        public async Task<IActionResult> SQLInjection(string? search)
         {
-            string sqlString = $"select * from where (1=1) AND name = {search}";
+            if (string.IsNullOrEmpty(search))
+            {
+                ViewBag.Result = "請輸入查詢條件";
+                return View();
+            }
 
-            //var data = _db.AuthUsers
-            //    .FromSqlRaw(sqlString)
-            //    .ToList();
+            // 攻擊字串'; drop table users;--
+            string sqlString = $"select * from [Users] where (1=1) AND name = '{search}' ";
 
-            var sqlSearch = new SqlParameter("name", search);
-            string sqlString2 = $"select * from where (1=1) AND name = {sqlSearch}";
+            var data = await _db.Users
+                .FromSqlRaw(sqlString)
+                .Select(x => x.Name)
+                .FirstOrDefaultAsync();
 
-            //var data2 = _db.AuthUsers
-            //    .FromSqlRaw(sqlString2)
-            //    .ToList();
+            ViewBag.Result = data ?? "查無資料";
 
+            //var sqlParameter = new SqlParameter("@name", search);
+            //string sqlString2 = $"select * from [Users] where (1=1) AND name = @name";
+
+            //var data2 = await _db.Users
+            //    .FromSqlRaw(sqlString2, sqlParameter)
+            //    .Select(x => x.Name)
+            //    .FirstOrDefaultAsync();
+
+            //ViewBag.Result = data2 ?? "查無資料";
             return View();
         }
     }

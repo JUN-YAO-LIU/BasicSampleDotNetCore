@@ -1,5 +1,7 @@
 using BasicSample.DbAccess;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 var configurations = builder.Configuration;
@@ -10,6 +12,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc();
+
+#pragma warning disable CS0618
+builder.Services.AddFluentValidation(options =>
+  {
+      options.ImplicitlyValidateChildProperties = true;
+      options.ImplicitlyValidateRootCollectionElements = true;
+      options.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+  });
+#pragma warning restore CS0618 // 類型或成員已經過時
 
 // 1.Cors
 string[] corsParameter = { "http://test.com", "https://test.com" };

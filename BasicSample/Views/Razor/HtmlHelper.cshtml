@@ -2,17 +2,21 @@
 @using (Html.BeginForm("HtmlHelper", "Razor", FormMethod.Post))
 {
     @Html.ValidationSummary("", new { style="color:red;" })
-
+    
     <div style="margin-bottom:15px;">
         @Html.LabelFor(x => x.OrderName, null, new { style="margin-right:10px;" })
         @Html.EditorFor(x => x.OrderName)
-        @Html.ValidationMessageFor(x => x.OrderName, "", new { style="color:red;" })
+        <div>
+            @Html.ValidationMessageFor(x => x.OrderName, "", new { style="color:red;" })
+        </div>
     </div>
-
+   
     <div style="margin-bottom:15px;">
         @Html.LabelFor(x => x.Email, null, new { style="margin-right:10px;" })
         @Html.EditorFor(x => x.Email)
-        @Html.ValidationMessageFor(x => x.Email, "", new { style="color:red;" })
+        <div>
+            @Html.ValidationMessageFor(x => x.Email, "", new { style="color:red;" })
+        </div>
     </div>
 
     <div style="margin-bottom:15px;">
@@ -43,6 +47,9 @@
     <div style="margin-bottom:15px;">
         @Html.LabelFor(x => x.Remark, null, new { style="margin-right:10px;" })
         @Html.EditorFor(x => x.Remark)
+        <div>
+            @Html.ValidationMessageFor(x => x.Remark, "", new { style="color:red;" })
+        </div>
     </div>
 
     <div style="margin-bottom:15px;">
