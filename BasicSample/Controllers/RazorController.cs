@@ -46,6 +46,12 @@ namespace BasicSample.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult TestHtmlHelper()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult HtmlHelper(CreateOrder obj)
