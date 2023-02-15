@@ -12,21 +12,21 @@ namespace BasicSample.Models
         public string TestPassword { get; set; } = string.Empty;
 
         [DataType(DataType.EmailAddress)]
-        public string ColName { get; set; }
+        public string TestEmail { get; set; } = string.Empty;
 
         [DataType(DataType.Date)]
-        public string ColName1 { get; set; }
+        public string TestDate { get; set; } = string.Empty;
 
         [DataType(DataType.DateTime)]
-        public string ColName2 { get; set; }
+        public string TestDateTime { get; set; } = string.Empty;
 
         [DataType(DataType.Currency)]
-        public string ColName3 { get; set; }
+        public string TestCurrency { get; set; } = string.Empty;
 
         [DataType(DataType.MultilineText)]
-        public string ColName4 { get; set; }
+        public string TestMultilineText { get; set; } = string.Empty;
 
         [DataType(DataType.Url)]
-        public string ColName5 { get; set; }
+        public string TestUrl { get; set; } = string.Empty;
     }
 }
