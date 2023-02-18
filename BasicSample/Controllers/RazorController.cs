@@ -59,6 +59,17 @@ namespace BasicSample.Controllers
         }
 
         [HttpPost]
+        public IActionResult TestDataTypeHtmlHelper(TestDataTypeHtmlHelper obj)
+        {
+            if (ModelState.IsValid)
+            {
+                return View(obj);
+            }
+
+            return View();
+        }
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult HtmlHelper(CreateOrder obj)
         {

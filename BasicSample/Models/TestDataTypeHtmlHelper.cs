@@ -21,7 +21,7 @@ namespace BasicSample.Models
         public string TestDateTime { get; set; } = string.Empty;
 
         [DataType(DataType.Currency)]
-        public string TestCurrency { get; set; } = string.Empty;
+        public int TestCurrency { get; set; }
 
         [DataType(DataType.MultilineText)]
         public string TestMultilineText { get; set; } = string.Empty;
