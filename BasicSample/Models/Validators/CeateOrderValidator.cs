@@ -2,7 +2,7 @@
 
 namespace BasicSample.Models.Validators
 {
-    public class CeateOrderValidator : AbstractValidator<CreateOrder>
+    public class CeateOrderValidator : AbstractValidator<TestTagHelper>
     {
         public CeateOrderValidator()
         {

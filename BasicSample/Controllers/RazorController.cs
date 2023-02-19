@@ -30,7 +30,7 @@ namespace BasicSample.Controllers
             TempData["TempNum"] = 1;
             TempData["TempName"] = "名稱";
 
-            var Model = new CreateOrder
+            var Model = new TestTagHelper
             {
                 BirthDay = DateTime.UtcNow,
                 Amount = 32,
@@ -71,7 +71,7 @@ namespace BasicSample.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult HtmlHelper(CreateOrder obj)
+        public IActionResult HtmlHelper(TestTagHelper obj)
         {
             // 會吃物件的設定，如果允許null 請給問號
             // 沒有問號就是Require
@@ -91,7 +91,14 @@ namespace BasicSample.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult TagHelper(CreateOrder obj)
+        public IActionResult TagHelper(TestTagHelper obj)
+        {
+            return View();
+        }
+
+
+        [HttpGet]
+        public IActionResult RemoveTagHelper()
         {
             return View();
         }
