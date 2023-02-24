@@ -1,4 +1,5 @@
 ﻿@model BasicSample.Models.TestTagHelper
+@removeTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <form asp-controller="" asp-action="" method="post">
     <div asp-validation-summary="All"></div>
@@ -18,7 +19,5 @@
     <input asp-for="Delete" type="checkbox" />
 
 
-
     <button type="submit">Send</button>
 </form>
-

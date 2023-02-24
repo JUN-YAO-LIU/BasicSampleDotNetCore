@@ -1,6 +1,6 @@
 ﻿namespace BasicSample.Models
 {
-    public class CreateOrder
+    public class TestTagHelper
     {
         /// <summary>
         /// 訂單名稱
