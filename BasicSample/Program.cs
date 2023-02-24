@@ -1,6 +1,8 @@
 using BasicSample.DbAccess;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,8 +11,28 @@ var configurations = builder.Configuration;
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(configurations.GetConnectionString("DbString")));
 
+// ¦h»y¨t
+// builder.Services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
+builder.Services.AddPortableObjectLocalization();
+
+builder.Services
+    .Configure<RequestLocalizationOptions>(options =>
+    {
+        string[] supportedCultures = { "en-US", "zh-TW" };
+        var supportedCulture = supportedCultures.Select(x => new CultureInfo(x)).ToList();
+
+        options.DefaultRequestCulture = new RequestCulture("en-US" ?? "en-US");
+        options.SupportedCultures = supportedCulture;
+        options.SupportedUICultures = supportedCulture;
+    }
+
+        );
+
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services
+    .AddControllersWithViews()
+    .AddViewLocalization();
+
 builder.Services.AddMvc();
 
 #pragma warning disable CS0618
