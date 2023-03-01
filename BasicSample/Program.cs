@@ -2,6 +2,7 @@ using BasicSample.DbAccess;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using System.Globalization;
 using System.Reflection;
 
@@ -12,25 +13,19 @@ builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(configurations.GetConnectionString("DbString")));
 
 // 多語系
-// builder.Services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
-builder.Services.AddPortableObjectLocalization();
+builder.Services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
 
+// 如果沒對應到會原本預設字串
+string[] languages = { "en", "zh" };
 builder.Services
-    .Configure<RequestLocalizationOptions>(options =>
-    {
-        string[] supportedCultures = { "en-US", "zh-TW" };
-        var supportedCulture = supportedCultures.Select(x => new CultureInfo(x)).ToList();
-
-        options.DefaultRequestCulture = new RequestCulture("en-US" ?? "en-US");
-        options.SupportedCultures = supportedCulture;
-        options.SupportedUICultures = supportedCulture;
-    }
-
-        );
+    .Configure<RequestLocalizationOptions>(options => options
+        .AddSupportedCultures(languages)
+        .AddSupportedUICultures(languages));
 
 // Add services to the container.
 builder.Services
     .AddControllersWithViews()
+    // 多語系註冊服務
     .AddViewLocalization();
 
 builder.Services.AddMvc();
@@ -55,6 +50,9 @@ builder.Services.AddCors(opt =>
 
 var app = builder.Build();
 
+// 多語系Middleware
+app.UseRequestLocalization();
+
 // 2.Cors
 app.UseCors("TestCorsPolicy");
 
@@ -73,7 +71,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
 
 // MapRazorPages
