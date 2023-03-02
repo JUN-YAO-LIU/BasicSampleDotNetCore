@@ -16,7 +16,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(
 builder.Services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
 
 // 如果沒對應到會原本預設字串
-string[] languages = { "en", "zh" };
+string[] languages = { "en", "zh", "jp" };
 builder.Services
     .Configure<RequestLocalizationOptions>(options => options
         .AddSupportedCultures(languages)
