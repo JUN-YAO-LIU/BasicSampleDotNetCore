@@ -25,4 +25,6 @@
     <PackageReference Include="OrchardCore.Localization.Core" Version="1.5.0" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
 </Project>
