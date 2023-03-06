@@ -9,13 +9,14 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 var configurations = builder.Configuration;
 
+var host =builder.WebHost;
+
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(configurations.GetConnectionString("DbString")));
 
 // 多語系
 builder.Services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
 
-// 如果沒對應到會原本預設字串
 string[] languages = { "en", "zh", "jp" };
 builder.Services
     .Configure<RequestLocalizationOptions>(options => options
