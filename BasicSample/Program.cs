@@ -9,7 +9,14 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 var configurations = builder.Configuration;
 
-var host =builder.WebHost;
+builder.Configuration
+    .AddIniFile(x => x.Path = "Configuration/TestINI.ini");
+
+builder.Configuration
+    .AddXmlFile(x => x.Path = "Configuration/TestXML.xml");
+
+builder.Configuration
+    .AddJsonFile(x => x.Path = "Configuration/TestJson.json");
 
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(configurations.GetConnectionString("DbString")));
