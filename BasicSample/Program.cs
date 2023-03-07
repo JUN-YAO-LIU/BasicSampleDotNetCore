@@ -1,9 +1,8 @@
 using BasicSample.DbAccess;
+using BasicSample.Options;
 using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
-using System.Globalization;
+
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +16,13 @@ builder.Configuration
 
 builder.Configuration
     .AddJsonFile(x => x.Path = "Configuration/TestJson.json");
+
+// Option ¿ï¶µ
+builder.Configuration
+    .AddJsonFile(x => x.Path = "Configuration/TestOption.json");
+
+builder.Services.Configure<TestJsonOption>(
+    builder.Configuration.GetSection("JsonConfigTestOption"));
 
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(configurations.GetConnectionString("DbString")));
