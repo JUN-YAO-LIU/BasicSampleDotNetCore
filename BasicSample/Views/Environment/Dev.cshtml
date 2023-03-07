@@ -7,3 +7,11 @@
 <environment exclude="Development">
     <div>只要不是測試環境，就能看到此內容</div>
 </environment>
+
+
+
+@if(ViewBag.EnvName != null)
+{
+    <div style="margin-top:20px;">後端讀取狀態，傳向前端顯示</div>
+    <div>@ViewBag.EnvName</div>
+}
