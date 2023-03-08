@@ -23,6 +23,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="OrchardCore.Localization.Core" Version="1.5.0" />
+		<PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
 	</ItemGroup>
 
 	<ProjectExtensions>

@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.AddFile($"{Directory.GetCurrentDirectory()}\\Logs\\log.txt");
+
 var configurations = builder.Configuration;
 
 builder.Configuration
