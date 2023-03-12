@@ -18,6 +18,12 @@ namespace BasicSample.Controllers
             return View();
         }
 
+        public IActionResult Car(int id)
+        {
+            string[] cars = { "Porsche", "Ferrari", "Lamborghini" };
+            return Content(cars[id % cars.Length]);
+        }
+
         public IActionResult Privacy()
         {
             return View();

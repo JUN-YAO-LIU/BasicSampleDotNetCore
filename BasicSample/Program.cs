@@ -92,6 +92,11 @@ app.UseAuthorization();
 // MapRazorPages
 // MapBlazorHub
 app.MapControllerRoute(
+    name: "Multi",
+    pattern: "test/{*article}",
+    defaults: new { controller = "Multi", action = "Article" });
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
