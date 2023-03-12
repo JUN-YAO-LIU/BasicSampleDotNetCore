@@ -11,14 +11,16 @@ namespace BasicSample.Controllers
             _logger = logger;
         }
 
-        public IActionResult Fun1(int? id)
+        [HttpGet("~/http-attribute")]
+        public IActionResult Fun1()
         {
-            return Content("Http Attribute Fun1 + " + id.ToString()!);
+            return Content("Http Attribute Fun1");
         }
 
-        public IActionResult Fun2(int? id)
+        [HttpPost("~/http-attribute")]
+        public IActionResult Fun1([FromBody] int model)
         {
-            return Content("Http Attribute Fun2 + " + id!.ToString()!);
+            return Content("Http Attribute Fun2 + " + model!.ToString()!);
         }
     }
 }
