@@ -24,6 +24,11 @@ namespace BasicSample.Controllers
             return Content(cars[id % cars.Length]);
         }
 
+        [NonAction]
+        public void RemoveAction()
+        {
+        }
+
         public IActionResult Privacy()
         {
             return View();
