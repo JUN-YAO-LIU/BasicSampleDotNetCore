@@ -24,6 +24,11 @@ namespace BasicSample.Controllers
             return Content(cars[id % cars.Length]);
         }
 
+        public IActionResult Test_LocalRedirect_Destination()
+        {
+            return Content("LocalRedirect_Destination !!，這裡是HomeController");
+        }
+
         [NonAction]
         public void RemoveAction()
         {
