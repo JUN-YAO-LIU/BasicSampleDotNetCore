@@ -1,3 +1,4 @@
+using BasicSample.Application;
 using BasicSample.DbAccess;
 using BasicSample.Options;
 using FluentValidation.AspNetCore;
@@ -63,6 +64,8 @@ builder.Services.AddCors(opt =>
                     .AllowAnyMethod()
                     .AllowCredentials()
                     .WithOrigins(corsParameter)));
+
+builder.Services.AddTransient<ICarService, CarService>();
 
 var app = builder.Build();
 
