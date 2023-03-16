@@ -1,1 +1,10 @@
-﻿About
+﻿@{
+    var str = "About";
+}
+
+<div>秀出文字：</div>
+
+@if (!string.IsNullOrEmpty(str))
+{
+    <div>@str</div>    
+}
