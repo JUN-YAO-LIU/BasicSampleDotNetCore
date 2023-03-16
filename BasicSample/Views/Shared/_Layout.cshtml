@@ -57,9 +57,27 @@
                                 Action 回傳測試
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_Ok">HttpStatus 200</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_BadRequest">HttpStatus 400</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_NotFound">HttpStatus 404</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_Unauthorized">HttpStatus 401</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_ReturnHttpStatusCode">HttpStatus 500</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_CustomerRequestStatus">自定義 HttpStatus 999</a></li>
                                 <li><a class="dropdown-item" href="~/ActionResult/Test_Redirect">跳轉到Google</a></li>
                                 <li><a class="dropdown-item" href="~/ActionResult/Test_RedirectToAction">RedirectToAction</a></li>
                                 <li><a class="dropdown-item" href="~/ActionResult/Test_RedirectToRoute">RedirectToRoute</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_File">下載檔案</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item text-dark dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Controller 相異性注入測試
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="~/Inject/Test_Car_Inject">相異性注入客製化服務</a></li>
+                                <li><a class="dropdown-item" href="~/Inject/Test_log_Inject">相異性注入Log使用</a></li>
+                                <li><a class="dropdown-item" href="~/Inject/Test_Option_Inject">相異性注入Option讀取參數檔</a></li>
+                                <li><a class="dropdown-item" href="~/Inject/Test_Env_Inject">相異性注入讀取環境</a></li>
                             </ul>
                         </li>
                         <li class="nav-item text-dark dropdown">

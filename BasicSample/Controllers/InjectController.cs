@@ -1,11 +1,7 @@
 ﻿using BasicSample.Application;
-using BasicSample.DbAccess.Models;
-using BasicSample.Models;
 using BasicSample.Options;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using System.Net;
 
 namespace BasicSample.Controllers
 {
@@ -19,11 +15,6 @@ namespace BasicSample.Controllers
 
         private readonly ICarService _car;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InjectController"/> class.
-        /// </summary>
-        /// <param name="logger">The logger.</param>
-        /// <param name="options">The options.</param>
         public InjectController(
             ILogger<InjectController> logger,
             IOptions<TestJsonOption> options,

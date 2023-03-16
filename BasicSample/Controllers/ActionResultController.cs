@@ -1,6 +1,4 @@
-﻿using BasicSample.DbAccess.Models;
-using BasicSample.Models;
-using Microsoft.AspNetCore.Http;
+﻿using BasicSample.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
