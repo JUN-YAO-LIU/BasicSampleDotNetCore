@@ -27,8 +27,9 @@ namespace BasicSample.Controllers
             _env = env;
         }
 
-        public IActionResult Test_Car_Inject()
+        public async Task<IActionResult> Test_Car_Inject()
         {
+            var t = await _car.GetUserList();
             return Content(_car.FillingUp());
         }
 
