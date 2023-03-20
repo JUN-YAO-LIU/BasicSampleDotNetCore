@@ -34,6 +34,11 @@ namespace BasicSample.Controllers
         {
         }
 
+        public IActionResult Test_TempDataViewBag()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -3,11 +3,11 @@
 <form asp-controller="" asp-action="" method="post">
     <div asp-validation-summary="All"></div>
 
-    <duv>
+    <div>
         <label class="caption" asp-for="Email"></label>
         <input asp-for="Email" disabled="@(Model?.Delete == null)" />
         <span asp-validation-for="Email" class="text-danger"></span>
-    </duv>
+    </div>
 
     <label class="caption" asp-for="OrderName"></label>
     <input asp-for="OrderName" />
