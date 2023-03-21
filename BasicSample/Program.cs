@@ -11,11 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 var configurations = builder.Configuration;
 
-builder.Configuration
-    .AddIniFile(x => x.Path = "Configuration/TestINI.ini");
+//builder.Configuration
+//    .AddIniFile(x => x.Path = "Configuration/TestINI.ini");
 
-builder.Configuration
-    .AddXmlFile(x => x.Path = "Configuration/TestXML.xml");
+//builder.Configuration
+//    .AddXmlFile(x => x.Path = "Configuration/TestXML.xml");
 
 builder.Configuration
     .AddJsonFile(x => x.Path = "Configuration/TestJson.json");

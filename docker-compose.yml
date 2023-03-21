@@ -1,0 +1,9 @@
+version: '1'
+services:
+  aspnetcore-in-docker:
+    image: aspnetcore-in-docker
+    container_name: aspnetcore-in-docker
+    ports:
+      - 5000:80
+    #volumes:
+     # - /x/Github/AspNetCoreInDocker/logs.txt:/app/logs.txt
