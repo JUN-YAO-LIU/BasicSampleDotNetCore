@@ -29,7 +29,7 @@ namespace BasicSample.Controllers
 
         public async Task<IActionResult> Test_Car_Inject()
         {
-            var t = await _car.GetUserList();
+            var t = await _car.GetUserListAsync();
             return Content(_car.FillingUp());
         }
 

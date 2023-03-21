@@ -18,9 +18,15 @@ namespace BasicSample.Application
             return "需要加油";
         }
 
-        public async Task<IList<User>> GetUserList(CancellationToken cancellationToken = default)
+        public async Task<IList<User>> GetUserListAsync(CancellationToken cancellationToken = default)
         {
             var result = await _db.Users.ToListAsync(cancellationToken);
+            return result;
+        }
+
+        public IList<User> GetUserList()
+        {
+            var result = _db.Users.ToList();
             return result;
         }
     }

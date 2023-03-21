@@ -17,6 +17,8 @@ namespace BasicSample.Application
         /// <returns>
         ///  用戶列表
         /// </returns>
-        Task<IList<User>> GetUserList(CancellationToken cancellationToken = default);
+        Task<IList<User>> GetUserListAsync(CancellationToken cancellationToken = default);
+
+        IList<User> GetUserList();
     }
 }
