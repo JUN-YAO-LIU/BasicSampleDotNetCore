@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TestingDemo
+namespace BasicSampleMSTest
 {
     internal class TestDbAsyncQueryProvider<TEntity> : IDbAsyncQueryProvider
     {

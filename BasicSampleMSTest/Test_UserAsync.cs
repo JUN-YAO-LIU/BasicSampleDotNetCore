@@ -4,7 +4,6 @@ using BasicSample.DbAccess.Models;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using System.Data.Entity.Infrastructure;
-using TestingDemo;
 
 namespace BasicSampleMSTest
 {
