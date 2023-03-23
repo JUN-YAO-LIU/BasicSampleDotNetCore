@@ -11,7 +11,7 @@ namespace BasicSampleMSTest
     public class Test_User
     {
         [TestMethod]
-        public void Test_FillingUp()
+        public void Test_Select()
         {
             var data = new List<User>
             {
@@ -38,6 +38,22 @@ namespace BasicSampleMSTest
             Assert.AreEqual("AAA", blogs[0].Name);
             Assert.AreEqual("BBB", blogs[1].Name);
             Assert.AreEqual("ZZZ", blogs[2].Name);
+        }
+
+        [TestMethod]
+        public void Test_Insert()
+        {
+            var mockSet = new Mock<DbSet<User>>();
+
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            var mockContext = new Mock<ApplicationDbContext>(optionsBuilder.Options);
+            mockContext.Setup(m => m.Users).Returns(mockSet.Object);
+
+            var service = new CarService(mockContext.Object);
+            service.CreateUser("Jim");
+
+            mockSet.Verify(m => m.Add(It.IsAny<User>()), Times.Once());
+            mockContext.Verify(m => m.SaveChanges(), Times.Once());
         }
     }
 }

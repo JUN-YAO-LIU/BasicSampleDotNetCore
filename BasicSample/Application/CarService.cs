@@ -18,16 +18,29 @@ namespace BasicSample.Application
             return "需要加油";
         }
 
-        public async Task<IList<User>> GetUserListAsync(CancellationToken cancellationToken = default)
-        {
-            var result = await _db.Users.ToListAsync(cancellationToken);
-            return result;
-        }
-
         public IList<User> GetUserList()
         {
             var result = _db.Users.ToList();
             return result;
+        }
+
+        public void CreateUser(string name)
+        {
+            _db.Users.Add(
+                new User
+                {
+                    Name = name
+                });
+            _db.SaveChanges();
+        }
+
+        public void UpdateUser(string from, string to)
+        {
+            var user = _db.Users.Where(x => x.Name == from).First();
+            user.Name = to;
+
+            _db.Users.Update(user);
+            _db.SaveChanges();
         }
     }
 }
