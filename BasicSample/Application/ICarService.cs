@@ -15,5 +15,7 @@ namespace BasicSample.Application
         void CreateUser(string name);
 
         void UpdateUser(string from, string to);
+
+        void DeleteUser(string name);
     }
 }

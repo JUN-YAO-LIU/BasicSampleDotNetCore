@@ -36,10 +36,29 @@ namespace BasicSample.Application
 
         public void UpdateUser(string from, string to)
         {
-            var user = _db.Users.Where(x => x.Name == from).First();
+            var user = _db.Users.Where(x => x.Name == from).FirstOrDefault();
+
+            if (user is null)
+            {
+                throw new Exception("User Not Found !!");
+            }
+
             user.Name = to;
 
             _db.Users.Update(user);
+            _db.SaveChanges();
+        }
+
+        public void DeleteUser(string name)
+        {
+            var user = _db.Users.Where(x => x.Name == name).FirstOrDefault();
+
+            if (user is null)
+            {
+                throw new Exception("User Not Found !!");
+            }
+
+            _db.Users.Remove(user);
             _db.SaveChanges();
         }
     }
