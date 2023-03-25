@@ -3,7 +3,6 @@ using BasicSample.DbAccess;
 using BasicSample.Options;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
-
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);

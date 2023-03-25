@@ -1,15 +1,18 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
-WORKDIR /app
+# https://hub.docker.com/_/microsoft-dotnet
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /source
 
-# Copy everything
-COPY . ./
-# Restore as distinct layers
+# copy csproj and restore as distinct layers
+COPY src/*.csproj 
 RUN dotnet restore
-# Build and publish a release
-RUN dotnet publish -c Release -o out
 
-# Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
-WORKDIR /app
-COPY --from=build-env /app/out .
+# copy everything else and build app
+COPY src .
+RUN dotnet publish -c release -o /publish
+
+# final stage/image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 as runtime
+WORKDIR /publish
+COPY --from=build-env /publish .
+EXPOSE 80
 ENTRYPOINT ["dotnet", "BasicSample.dll"]
