@@ -31,7 +31,7 @@ namespace BasicSampleMSTest
             var mockContext = new Mock<ApplicationDbContext>(optionsBuilder.Options);
             mockContext.Setup(c => c.Users).Returns(mockSet.Object);
 
-            var service = new CarService(mockContext.Object);
+            var service = new UserService(mockContext.Object);
             var blogs = service.GetUserList();
 
             Assert.AreEqual(3, blogs.Count);
@@ -49,7 +49,7 @@ namespace BasicSampleMSTest
             var mockContext = new Mock<ApplicationDbContext>(optionsBuilder.Options);
             mockContext.Setup(m => m.Users).Returns(mockSet.Object);
 
-            var service = new CarService(mockContext.Object);
+            var service = new UserService(mockContext.Object);
             service.CreateUser("Jim");
 
             mockSet.Verify(m => m.Add(It.IsAny<User>()), Times.Once());
@@ -80,7 +80,7 @@ namespace BasicSampleMSTest
                 var mockContext = new Mock<ApplicationDbContext>(optionsBuilder.Options);
                 mockContext.Setup(m => m.Users).Returns(mockSet.Object);
 
-                var service = new CarService(mockContext.Object);
+                var service = new UserService(mockContext.Object);
                 service.UpdateUser(from, to);
             }
             catch (Exception ex)
@@ -113,7 +113,7 @@ namespace BasicSampleMSTest
                 var mockContext = new Mock<ApplicationDbContext>(optionsBuilder.Options);
                 mockContext.Setup(m => m.Users).Returns(mockSet.Object);
 
-                var service = new CarService(mockContext.Object);
+                var service = new UserService(mockContext.Object);
                 service.DeleteUser(name);
             }
             catch (Exception ex)

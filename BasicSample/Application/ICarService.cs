@@ -9,13 +9,5 @@ namespace BasicSample.Application
         /// </summary>
         /// <param name="cancellationToken">The cancellation token.</param>
         string FillingUp(CancellationToken cancellationToken = default);
-
-        IList<User> GetUserList();
-
-        void CreateUser(string name);
-
-        void UpdateUser(string from, string to);
-
-        void DeleteUser(string name);
     }
 }
