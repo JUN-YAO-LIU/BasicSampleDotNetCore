@@ -1,15 +1,21 @@
 ﻿using BasicSample.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace BasicSample.Controllers
 {
     public class TagHelperController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(TestBasicTaghelper model)
         {
             return View();
+        }
+
+        public void TestRouteId(int id)
+        {
+        }
+
+        public void TestRoute(string name, string age)
+        {
         }
 
         public IActionResult UploadFiles()
