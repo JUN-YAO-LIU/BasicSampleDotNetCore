@@ -1,17 +1,5 @@
 ﻿@model TestBasicTaghelper
 
-@{
-
-    var carSelect = new List<SelectListItem>
-        {
-            new SelectListItem { Value = "A", Text = "Car1" },
-            new SelectListItem { Value = "B", Text = "Car2" },
-            new SelectListItem { Value = "C", Text = "Car3"  },
-        };
-
-
-}
-
 <!--超連結-->
 <!--asp-controller-->
 <div>
@@ -63,7 +51,9 @@
 
 <!--Label-->
 <div>
+    <h3>Label</h3>
     <label asp-for="@Model.Car"></label>
+    <br/>
 </div>
 
 
@@ -78,12 +68,31 @@
 
 
 <div>
-    <!--Label-->
+    <!--表單-->
     <form asp-controller="TagHelper" asp-action="Index" method="post">
     </form>
 </div>
 
+
+<!--input-->
+<div>
+     <label asp-for="@Model.Email"></label>
+     <input asp-for="@Model.Email" /> <br />
+     <label asp-for="@Model.Password"></label>
+     <input asp-for="@Model.Password" /> <br />
+</div>
+
 <!--Select-->
+
+@{
+    var carSelect = new List<SelectListItem>
+        {
+            new SelectListItem { Value = "A", Text = "Car1" },
+            new SelectListItem { Value = "B", Text = "Car2" },
+            new SelectListItem { Value = "C", Text = "Car3"  },
+        };
+}
+
 <div>
     <form asp-controller="TagHelper" asp-action="Index" method="post">
         <select asp-for="@Model.Car" asp-items="carSelect"></select>

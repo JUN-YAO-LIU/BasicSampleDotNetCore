@@ -13,5 +13,7 @@ namespace BasicSample.DbAccess
         }
 
         public virtual DbSet<User> Users { get; set; }
+
+        public virtual DbSet<Order> Orders { get; set; }
     }
 }

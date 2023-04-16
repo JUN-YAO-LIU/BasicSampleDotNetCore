@@ -33,15 +33,12 @@ namespace BasicSample.Application
         {
             var user = _db.Users.Where(x => x.Name == from).FirstOrDefault();
 
-            if (user is null)
+            if (user is not null)
             {
-                throw new Exception("User Not Found !!");
+                user.Name = to;
+                _db.Users.Update(user);
+                _db.SaveChanges();
             }
-
-            user.Name = to;
-
-            _db.Users.Update(user);
-            _db.SaveChanges();
         }
 
         public void DeleteUser(string name)

@@ -1,7 +1,4 @@
 using BasicSample.Application;
-using BasicSample.DbAccess;
-using Microsoft.EntityFrameworkCore;
-using Moq;
 
 namespace BasicSampleMSTest
 {
@@ -11,9 +8,13 @@ namespace BasicSampleMSTest
         [TestMethod]
         public void Test_FillingUp()
         {
-            //
+            // Arrange
             var car = new CarService();
+
+            // Act
             string result = car.FillingUp();
+
+            // Assert
             Assert.IsNotNull(result, "1 should not be null.");
         }
     }
